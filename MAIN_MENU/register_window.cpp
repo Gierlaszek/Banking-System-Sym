@@ -97,7 +97,6 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
         int p = rand()%10;
         QString acc = QString::number(p);
         acc_number.append(acc);
-        qDebug() << acc_number;
         }
     }
 
@@ -116,6 +115,18 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     data << money << "\n";
     Database.close();
     }
+
+    //UTWORZENIE DANYCH PRZELEWOW UZYTKOWNIKA
+    QFile User_Account("User_Account.txt");
+    User_Account.open(QIODevice::ReadWrite | QIODevice::Text |QIODevice::Append);
+    QTextStream out(&User_Account);
+    if (check1 == true && check2 == true)
+    {
+        out << mail << "\n";
+        out << "0";
+    }
+
+    User_Account.close();
 
     //INFORMACJA O ZAREJESTROWANIU
     if (check1==true &&check2==true)

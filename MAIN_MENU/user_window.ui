@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>user_window</class>
  <widget class="QMainWindow" name="user_window">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,8 +19,17 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <widget class="QPushButton" name="pushButton_new_transfer">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -27,7 +42,7 @@
      <string>Nowy przelew</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_back">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -41,6 +56,9 @@
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -50,7 +68,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_history">
     <property name="geometry">
      <rect>
       <x>90</x>

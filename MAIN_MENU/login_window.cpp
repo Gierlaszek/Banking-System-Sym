@@ -26,12 +26,21 @@ void login_window::on_backButton_clicked()
 
 void login_window::on_loginButton_clicked()
 {
-    QString mail, password;
+
+    QString password, mail;
     mail = ui->lineEdit_mail->text();
     password = ui->lineEdit_password->text();
 
+    //ZAPISANIE AKTUALNEGO UZYTKOWNIKA
+    QFile Current_User("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Current_User.txt");
+    Current_User.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream out(&Current_User);
+    out << mail;
+    out << "\n" << password;
+    Current_User.close();
+
     //OTWIERANIE PLIKU
-    QFile Database("Database.txt");
+    QFile Database("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt");
     Database.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&Database);
     QString us, user;
@@ -48,7 +57,7 @@ void login_window::on_loginButton_clicked()
             }
                 if(user.size() == password.length() && user == password)
                 {
-                    ui->statusbar->showMessage("Sukces. Zalogowano się poprawnie.");
+                   ui->statusbar->showMessage("Sukces. Zalogowano się poprawnie.");
                    user_window = new class user_window(this);
                    user_window->show();
                 }
@@ -70,4 +79,5 @@ void login_window::on_loginButton_clicked()
     }
     Database.close();
 }
+
 

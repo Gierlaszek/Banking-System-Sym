@@ -29,7 +29,7 @@ void admin_acc_delete::on_del_button_clicked()
 
 
 // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-    QFile Database ("Database.txt");
+    QFile Database ("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt");
     Database.open (QIODevice :: ReadWrite);
     QTextStream data(&Database);
     QString content = data.readAll();
