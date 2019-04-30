@@ -1,0 +1,15 @@
+release/admin_acc_delete.o
+release/admin_user_info.o
+release/main.o
+release/mainwindow.o
+release/register_window.o
+release/login_window.o
+release/admin_window.o
+release/user_window.o
+release/moc_admin_acc_delete.o
+release/moc_admin_user_info.o
+release/moc_mainwindow.o
+release/moc_register_window.o
+release/moc_login_window.o
+release/moc_admin_window.o
+release/moc_user_window.o
