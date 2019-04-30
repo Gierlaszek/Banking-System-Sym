@@ -123,7 +123,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     if (check1 == true && check2 == true)
     {
         out << mail << "\n";
-        out << "0";
+        out << "0"<<"\n";
     }
 
     User_Account.close();

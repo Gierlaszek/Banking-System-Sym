@@ -14,14 +14,14 @@ user_window::user_window(QWidget *parent) :
     ui->setupUi(this);
 
     //OTWARCIE PLIKU Z AKTUALNYM UŻTYKOWNIKIEM
-    QFile Current_User("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/CUrrent_User.txt");
+    QFile Current_User("Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
     Current_User.close();
 
     //OTWARCIE PLIKU Z DANYMI KONTA UZYTKOWNIKA
-    QFile User_Account("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/User_Account.txt");
+    QFile User_Account("User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream acc_user(&User_Account);
     QString ballance, User;
@@ -38,7 +38,7 @@ user_window::user_window(QWidget *parent) :
     User_Account.close();
 
     //OTWARCIE PLIKU Z BAZA DANYCH
-    QFile Database("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt");
+    QFile Database("Database.txt");
     Database.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&Database);
     QString name, acc_num;

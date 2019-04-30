@@ -29,11 +29,11 @@ void admin_acc_delete::on_del_button_clicked()
 
 
 // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-    QFile Database ("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt");
+    QFile Database ("Database.txt");
     Database.open (QIODevice :: ReadWrite);
     QTextStream data(&Database);
     QString content = data.readAll();
-    QString reading;
+
 
     int money_position=content.indexOf(QRegExp("\\d{16}"),content.indexOf(user_mail))+18;
     if (user_mail=="")
@@ -56,16 +56,46 @@ void admin_acc_delete::on_del_button_clicked()
 
     }
     else {
+        // kasowanie użytkownika z bazy danych
         int start = content.indexOf(user_mail);
-        int numocc = content.indexOf(QRegExp("\\d{16}"),content.indexOf(user_mail));
-        int end = numocc-start+21;
-        content=content.remove(start,end);
-        Database.remove();
-        Database.close();
-        Database.open(QIODevice :: WriteOnly);
-        QTextStream data(&Database);
-        data << content;
-        Database.close();
+        int marker = content.indexOf(QRegExp("\\d{16}"),start);
+        int end = marker-start+21;
+        //content=content.remove(start,end);
+        //Database.remove();
+        //Database.close();
+        //Database.open(QIODevice :: WriteOnly);
+        //QTextStream data(&Database);
+        //data << content;
+        //Database.close();
+
+
+        //kasowanie uzytkownika z historii przelewów
+        QFile user_acc("User_Account.txt");
+        user_acc.open(QIODevice::ReadWrite);
+        QTextStream user_data(&user_acc);
+        QString content2 = user_data.readAll();
+        QString reading = "";
+        start = content.indexOf(user_mail);
+        marker = content.indexOf(QRegExp("\\@"),start+1);
+        content = "";
+        user_data.seek(0);
+        while (!user_data.atEnd())
+        {
+            reading=user_data.readLine();
+            if (reading == user_mail)
+                for (int i = start ; i<marker;i++)
+                {
+                    reading=user_data.readLine();
+                    if (reading.contains("@")){break;}
+                    else {content+=reading;}
+                }
+        }
+        content2.remove(content);
+        QTextStream (stdout) << content2;
+        QTextStream (stdout) << content;
+        user_acc.remove();
+        user_data << content2;
+
         QMessageBox :: StandardButton warning1 = QMessageBox :: information(this,"SUKCES","Pomyślnie usunięto uzytkownika",QMessageBox::Ok);
 
     }

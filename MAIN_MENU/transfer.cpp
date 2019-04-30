@@ -25,7 +25,7 @@ void Transfer::on_pushButton_Wyslij_clicked()
     //Zrobic date przelewu!!!
 
     //OTWARCIE PLIKU Z AKTUALNYM UŻTYKOWNIKIEM
-    QFile Current_User("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/CUrrent_User.txt");
+    QFile Current_User("Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
@@ -59,7 +59,7 @@ void Transfer::on_pushButton_Wyslij_clicked()
     //OTWARCIE PLIKU Z DANYMI KONTA UZYTKOWNIKA
     if(check1 == true)
     {
-        QFile User_Account("/Users/kamil/Desktop/Bank-JP/build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/User_Account.txt");
+        QFile User_Account("User_Account.txt");
         User_Account.open(QIODevice::ReadWrite | QIODevice::Text);
         QTextStream in(&User_Account);
         QString user;

@@ -25,10 +25,10 @@ class Ui_user_window
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
+    QPushButton *pushButton_new_transfer;
+    QPushButton *pushButton_back;
     QTextBrowser *textBrowser_3;
-    QPushButton *pushButton_2;
+    QPushButton *pushButton_history;
     QTextBrowser *textBrowser_2;
     QTextBrowser *textBrowser;
     QLabel *label;
@@ -39,21 +39,27 @@ public:
     {
         if (user_window->objectName().isEmpty())
             user_window->setObjectName(QString::fromUtf8("user_window"));
+        user_window->setWindowModality(Qt::NonModal);
+        user_window->setEnabled(true);
         user_window->resize(598, 345);
+        user_window->setAnimated(true);
+        user_window->setDockNestingEnabled(true);
         centralwidget = new QWidget(user_window);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(90, 190, 113, 32));
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(90, 250, 113, 32));
+        centralwidget->setEnabled(true);
+        pushButton_new_transfer = new QPushButton(centralwidget);
+        pushButton_new_transfer->setObjectName(QString::fromUtf8("pushButton_new_transfer"));
+        pushButton_new_transfer->setGeometry(QRect(90, 190, 113, 32));
+        pushButton_back = new QPushButton(centralwidget);
+        pushButton_back->setObjectName(QString::fromUtf8("pushButton_back"));
+        pushButton_back->setGeometry(QRect(90, 250, 113, 32));
         textBrowser_3 = new QTextBrowser(centralwidget);
         textBrowser_3->setObjectName(QString::fromUtf8("textBrowser_3"));
+        textBrowser_3->setEnabled(true);
         textBrowser_3->setGeometry(QRect(290, 80, 251, 41));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(90, 220, 113, 32));
+        pushButton_history = new QPushButton(centralwidget);
+        pushButton_history->setObjectName(QString::fromUtf8("pushButton_history"));
+        pushButton_history->setGeometry(QRect(90, 220, 113, 32));
         textBrowser_2 = new QTextBrowser(centralwidget);
         textBrowser_2->setObjectName(QString::fromUtf8("textBrowser_2"));
         textBrowser_2->setGeometry(QRect(30, 80, 241, 41));
@@ -80,9 +86,9 @@ public:
     void retranslateUi(QMainWindow *user_window)
     {
         user_window->setWindowTitle(QApplication::translate("user_window", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("user_window", "Nowy przelew", nullptr));
-        pushButton_3->setText(QApplication::translate("user_window", "Wyloguj", nullptr));
-        pushButton_2->setText(QApplication::translate("user_window", "Historia ", nullptr));
+        pushButton_new_transfer->setText(QApplication::translate("user_window", "Nowy przelew", nullptr));
+        pushButton_back->setText(QApplication::translate("user_window", "Wyloguj", nullptr));
+        pushButton_history->setText(QApplication::translate("user_window", "Historia ", nullptr));
         label->setText(QApplication::translate("user_window", "Dost\304\231pne \305\233rodki", nullptr));
     } // retranslateUi
 
