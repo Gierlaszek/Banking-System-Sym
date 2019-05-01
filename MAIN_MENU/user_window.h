@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "transfer.h"
 #include "transfer_history.h"
+#include "payment.h"
 
 namespace Ui {
 class user_window;
@@ -24,10 +25,13 @@ private slots:
 
     void on_pushButton_history_clicked();
 
+    void on_pushButton_payment_clicked();
+
 private:
     Ui::user_window *ui;
-    Transfer *Transfer;
-    transfer_history *transfer_history;
+    Transfer *transfer;
+    transfer_history *Transfer_history;
+    payment *Payment;
 };
 
 #endif // USER_WINDOW_H

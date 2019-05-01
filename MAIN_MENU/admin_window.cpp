@@ -38,3 +38,9 @@ void admin_window::on_pushButton_clicked()
 {
     close();
 }
+
+void admin_window::on_transfer_button_clicked()
+{
+    ADMIN_CONFIRM_PAYMENT = new class admin_confirm_payment(this);
+    ADMIN_CONFIRM_PAYMENT->show();
+}

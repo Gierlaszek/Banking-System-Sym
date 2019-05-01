@@ -74,7 +74,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     }
 
     //SZUKANIE IDENTYCZNEGO KONTA
-    QFile Database("Database.txt");
+    QFile Database("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
     Database.open(QIODevice::ReadWrite);
     QTextStream data(&Database);
     qDebug();
@@ -117,7 +117,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     }
 
     //UTWORZENIE DANYCH PRZELEWOW UZYTKOWNIKA
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text |QIODevice::Append);
     QTextStream out(&User_Account);
     if (check1 == true && check2 == true)

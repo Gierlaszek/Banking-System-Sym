@@ -1,95 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>admin_window</class>
- <widget class="QMainWindow" name="admin_window">
+ <class>admin_confirm_payment</class>
+ <widget class="QMainWindow" name="admin_confirm_payment">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>289</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="deleteuser_button">
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Usuń uzytkownika</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="user_history_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>110</y>
+      <x>80</x>
+      <y>60</y>
       <width>161</width>
-      <height>23</height>
+      <height>71</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Operacje uzytkownika</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="user_data_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Dane użytkownika</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="adduser_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Dodaj użytkownika</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="transfer_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>151</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Zapytania o wpłate</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>20</y>
-      <width>75</width>
-      <height>23</height>
+      <x>0</x>
+      <y>10</y>
+      <width>113</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Wyloguj</string>
+     <string>powrót</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>121</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kolejna Osoba</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>140</y>
+      <width>131</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Potwierdzenie</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mail</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kwota</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>140</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Anulowanie</string>
     </property>
    </widget>
   </widget>
@@ -98,7 +108,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>289</width>
      <height>22</height>
     </rect>
    </property>

@@ -35,7 +35,7 @@ void admin_acc_delete::on_del_button_clicked()
     QString content = data.readAll();
 
 
-    int money_position=content.indexOf(QRegExp("\\d{16}"),content.indexOf(user_mail))+18;
+    int money_position=content.indexOf(QRegExp("\\d{16}"),content.indexOf(user_mail))+17;
     if (user_mail=="")
     {
         QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);

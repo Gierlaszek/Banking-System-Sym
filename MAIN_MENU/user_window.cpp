@@ -14,14 +14,14 @@ user_window::user_window(QWidget *parent) :
     ui->setupUi(this);
 
     //OTWARCIE PLIKU Z AKTUALNYM UŻTYKOWNIKIEM
-    QFile Current_User("Current_User.txt");
+    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
     Current_User.close();
 
-    //OTWARCIE PLIKU Z DANYMI KONTA UZYTKOWNIKA
-    QFile User_Account("User_Account.txt");
+    //OTWaARCIE PLIKU Z DANYMI KONTA UZYTKOWNIKA
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream acc_user(&User_Account);
     QString ballance, User;
@@ -38,7 +38,7 @@ user_window::user_window(QWidget *parent) :
     User_Account.close();
 
     //OTWARCIE PLIKU Z BAZA DANYCH
-    QFile Database("Database.txt");
+    QFile Database("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
     Database.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&Database);
     QString name, acc_num;
@@ -81,12 +81,20 @@ void user_window::on_pushButton_back_clicked()
 
 void user_window::on_pushButton_new_transfer_clicked()
 {
-    Transfer = new class Transfer(this);
-    Transfer->show();
+    transfer = new Transfer(this);
+    transfer->show();
+    hide();
 }
 
 void user_window::on_pushButton_history_clicked()
 {
-    transfer_history = new class transfer_history(this);
-    transfer_history->show();
+    Transfer_history = new class transfer_history(this);
+    Transfer_history->show();
+}
+
+void user_window::on_pushButton_payment_clicked()
+{
+    Payment = new payment(this);
+    Payment->show();
+
 }

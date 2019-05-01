@@ -5,6 +5,7 @@
 #include <register_window.h>
 #include <admin_acc_delete.h>
 #include<admin_user_info.h>
+#include <admin_confirm_payment.h>
 
 namespace Ui {
 class admin_window;
@@ -27,11 +28,14 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_transfer_button_clicked();
+
 private:
     Ui::admin_window *ui;
     REGISTER_WINDOW *REGISTER_WINDOW;
     admin_acc_delete *ADMIN_ACC_DELETE;
     admin_user_info *ADMIN_USER_INFO;
+    admin_confirm_payment *ADMIN_CONFIRM_PAYMENT;
 };
 
 #endif // ADMIN_WINDOW_H

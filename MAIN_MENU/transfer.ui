@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>517</width>
+    <width>407</width>
     <height>344</height>
    </rect>
   </property>
@@ -97,12 +97,12 @@
      <rect>
       <x>20</x>
       <y>190</y>
-      <width>91</width>
+      <width>141</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Potwierdzenie</string>
+     <string>Potwierdzenie haslem</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_back">
@@ -134,7 +134,7 @@
    <widget class="QLineEdit" name="lineEdit_odiorca">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>190</x>
       <y>40</y>
       <width>171</width>
       <height>21</height>
@@ -144,7 +144,7 @@
    <widget class="QLineEdit" name="lineEdit_tytul">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>190</x>
       <y>70</y>
       <width>171</width>
       <height>21</height>
@@ -154,7 +154,7 @@
    <widget class="QLineEdit" name="lineEdit_konto">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>190</x>
       <y>100</y>
       <width>171</width>
       <height>21</height>
@@ -164,7 +164,7 @@
    <widget class="QLineEdit" name="lineEdit_kwota">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>190</x>
       <y>130</y>
       <width>171</width>
       <height>21</height>
@@ -174,8 +174,34 @@
    <widget class="QLineEdit" name="lineEdit_potwierdzenie">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>180</y>
+      <x>190</x>
+      <y>190</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>130</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PLN</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>160</y>
       <width>171</width>
       <height>21</height>
      </rect>
@@ -187,7 +213,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>517</width>
+     <width>407</width>
      <height>22</height>
     </rect>
    </property>

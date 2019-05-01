@@ -23,7 +23,9 @@ SOURCES += \
     transfer.cpp \
     transfer_history.cpp \
     admin_acc_delete.cpp \
-    admin_user_info.cpp
+    admin_user_info.cpp \
+    payment.cpp \
+    admin_confirm_payment.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -34,7 +36,9 @@ HEADERS += \
     transfer.h \
     transfer_history.h \
     admin_acc_delete.h \
-    admin_user_info.h
+    admin_user_info.h \
+    payment.h \
+    admin_confirm_payment.h
 
 FORMS += \
         mainwindow.ui \
@@ -45,7 +49,9 @@ FORMS += \
     transfer.ui \
     transfer_history.ui \
     admin_acc_delete.ui \
-    admin_user_info.ui
+    admin_user_info.ui \
+    payment.ui \
+    admin_confirm_payment.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -56,4 +62,8 @@ DISTFILES += \
     ../build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt \
     ../build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.txt \
     ../build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/Current_User.txt \
-    ../build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/User_Account.txt
+    ../build-MAIN_MENU-Desktop_Qt_5_5_1_clang_64bit-Debug/User_Account.txt \
+    ../Debug-Kamil/User_Account.txt \
+    ../Debug-Kamil/Database.txt \
+    ../Debug-Kamil/Current_User.txt \
+    ../Debug-Kamil/Confirm_Payment.txt
