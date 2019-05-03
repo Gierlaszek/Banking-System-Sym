@@ -42,7 +42,7 @@ void transfer_history::on_pushButton_history_clicked()
     while(!in.atEnd())
     {
         transfer = in.readLine();
-        if(transfer == mail)
+        if(transfer =="Mail:"+mail)
         {
             qDebug() << transfer;
             in.readLine();

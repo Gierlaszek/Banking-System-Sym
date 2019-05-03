@@ -47,6 +47,6 @@ void admin_window::on_transfer_button_clicked()
 
 void admin_window::on_user_history_button_clicked()
 {
-    ADMIN_TRANSFER_HISTORY = new class admin_transfer_history(this);
-    ADMIN_TRANSFER_HISTORY->show();
+    ADMIN_HISTORY = new class admin_history(this);
+    ADMIN_HISTORY->show();
 }
