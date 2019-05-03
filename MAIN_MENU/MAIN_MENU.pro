@@ -15,7 +15,6 @@ CONFIG += c++11
 
 SOURCES += \
     admin_transfer_history.cpp \
-    admin_user_history.cpp \
         main.cpp \
         mainwindow.cpp \
         register_window.cpp \
@@ -31,7 +30,6 @@ SOURCES += \
 
 HEADERS += \
     admin_transfer_history.h \
-    admin_user_history.h \
         mainwindow.h \
         register_window.h \
     login_window.h \
@@ -46,7 +44,6 @@ HEADERS += \
 
 FORMS += \
     admin_transfer_history.ui \
-    admin_user_history.ui \
         mainwindow.ui \
         register_window.ui \
     login_window.ui \

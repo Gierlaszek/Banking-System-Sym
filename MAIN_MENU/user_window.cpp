@@ -28,7 +28,7 @@ user_window::user_window(QWidget *parent) :
     while(!acc_user.atEnd())
     {
         User = acc_user.readLine();
-        if(User == mail)
+        if(User == "Mail:"+mail)
         {
             ballance = acc_user.readLine();
             ballance += " PLN";

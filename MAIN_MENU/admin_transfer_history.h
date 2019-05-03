@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_2_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::admin_transfer_history *ui;
 };
