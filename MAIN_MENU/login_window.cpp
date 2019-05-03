@@ -62,10 +62,6 @@ void login_window::on_loginButton_clicked()
                    user_window->show();
                    close();
                 }
-                else if(user != password)
-                {
-                    QMessageBox :: StandardButton warning3 = QMessageBox :: warning(this,"UWAGA","logowanie nie powiodlo sie. Zly login lub haslo.", QMessageBox::Ok);
-                }
 
         }
         else if(us == "Admin")
@@ -78,6 +74,11 @@ void login_window::on_loginButton_clicked()
                 admin_window->show();
                 close();
             }
+        }
+        else if((!us.contains(mail) || !us.contains(password)) && (mail!="Admin" || password!="Admin1"))
+        {
+            QMessageBox :: warning(this,"UWAGA","logowanie nie powiodlo sie. Zly login lub haslo.", QMessageBox::Ok);
+            break;
         }
     }
     Database.close();

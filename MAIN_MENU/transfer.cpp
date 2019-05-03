@@ -65,15 +65,15 @@ void Transfer::on_pushButton_Wyslij_clicked()
     //POTWIERDZENIE DANYCH PRZELEWU
     if(addressee == "" || title == "" || acc_num == "" || amount == "")
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
     }
     else if(pass != password)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło",QMessageBox::Ok);
     }
     else if(amount.toFloat() > money.toFloat())
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Brak środków na koncie",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Brak środków na koncie",QMessageBox::Ok);
     }
     else
     {

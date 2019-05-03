@@ -38,21 +38,21 @@ void admin_acc_delete::on_del_button_clicked()
     int money_position=content.indexOf(QRegExp("\\d{16}"),content.indexOf(user_mail))+18;
     if (user_mail=="")
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
     }
     else if(user_mail.contains("@")==false || user_mail.contains(".")==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
     }
     else if(content.contains(user_mail)==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
     }
     else if (content[money_position]!='0') {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Saldo nie wynosi 0!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Saldo nie wynosi 0!",QMessageBox::Ok);
     }
     else if (pass_confirm!="Admin1") {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło!",QMessageBox::Ok);
 
     }
     else {
@@ -85,7 +85,7 @@ void admin_acc_delete::on_del_button_clicked()
         user_acc.open(QIODevice::WriteOnly);
         user_data << content;
 
-        QMessageBox :: StandardButton warning1 = QMessageBox :: information(this,"SUKCES","Pomyślnie usunięto uzytkownika",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: information(this,"SUKCES","Pomyślnie usunięto uzytkownika",QMessageBox::Ok);
 
     }
 

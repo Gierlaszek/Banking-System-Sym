@@ -14,7 +14,6 @@ public:
     ~REGISTER_WINDOW();
 
 private slots:
-    void on_exitButton_clicked();
 
     void on_backButton_clicked();
 

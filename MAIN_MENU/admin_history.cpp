@@ -40,15 +40,15 @@ void admin_history::on_pushButton_2_clicked()
 
     if (user_mail=="")
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
     }
     else if(user_mail.contains("@")==false || user_mail.contains(".")==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
     }
     else if(content.contains(user_mail)==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
+        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
     }
     else {
         start = content.indexOf("Mail:"+user_mail);

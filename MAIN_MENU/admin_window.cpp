@@ -2,6 +2,7 @@
 #include "ui_admin_window.h"
 #include "register_window.h"
 #include "admin_acc_delete.h"
+#include <QMessageBox>
 
 admin_window::admin_window(QWidget *parent) :
     QMainWindow(parent),
@@ -36,6 +37,10 @@ void admin_window::on_user_data_button_clicked()
 
 void admin_window::on_pushButton_clicked()
 {
+    QMessageBox :: StandardButton question = QMessageBox :: warning(this,"Potwierdź decyzję","Czy na pewno chcesz się wylogować?",QMessageBox:: Yes | QMessageBox::No);
+    if (question==QMessageBox::Yes)
+        close();
+
     close();
 }
 

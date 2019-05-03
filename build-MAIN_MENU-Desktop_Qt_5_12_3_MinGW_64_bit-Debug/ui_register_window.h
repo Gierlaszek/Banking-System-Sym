@@ -35,7 +35,6 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QLabel *label_7;
-    QPushButton *exitButton;
     QPushButton *backButton;
     QLineEdit *lineEdit_1;
     QLineEdit *lineEdit_2;
@@ -81,9 +80,6 @@ public:
         label_7 = new QLabel(centralwidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(60, 300, 47, 13));
-        exitButton = new QPushButton(centralwidget);
-        exitButton->setObjectName(QString::fromUtf8("exitButton"));
-        exitButton->setGeometry(QRect(234, 10, 171, 23));
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(230, 40, 181, 23));
@@ -113,7 +109,7 @@ public:
         REGISTER_WINDOW->setCentralWidget(centralwidget);
         menubar = new QMenuBar(REGISTER_WINDOW);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         REGISTER_WINDOW->setMenuBar(menubar);
         statusbar = new QStatusBar(REGISTER_WINDOW);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -136,8 +132,7 @@ public:
         label_5->setText(QApplication::translate("REGISTER_WINDOW", "nr. tel", nullptr));
         label_6->setText(QApplication::translate("REGISTER_WINDOW", "Haslo", nullptr));
         label_7->setText(QApplication::translate("REGISTER_WINDOW", "potwierdz haslo", nullptr));
-        exitButton->setText(QApplication::translate("REGISTER_WINDOW", "Wyjd\305\272 z programu", nullptr));
-        backButton->setText(QApplication::translate("REGISTER_WINDOW", "Powr\303\263t do ekranu g\305\202\303\263wnego", nullptr));
+        backButton->setText(QApplication::translate("REGISTER_WINDOW", "Powr\303\263t", nullptr));
     } // retranslateUi
 
 };
