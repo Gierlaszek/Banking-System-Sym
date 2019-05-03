@@ -44,3 +44,9 @@ void admin_window::on_transfer_button_clicked()
     ADMIN_CONFIRM_PAYMENT = new class admin_confirm_payment(this);
     ADMIN_CONFIRM_PAYMENT->show();
 }
+
+void admin_window::on_user_history_button_clicked()
+{
+    TRANSFER_HISTORY = new class transfer_history(this);
+    TRANSFER_HISTORY->show();
+}

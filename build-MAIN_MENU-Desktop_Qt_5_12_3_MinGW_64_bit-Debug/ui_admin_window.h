@@ -44,7 +44,7 @@ public:
         deleteuser_button->setGeometry(QRect(10, 50, 141, 23));
         user_history_button = new QPushButton(centralwidget);
         user_history_button->setObjectName(QString::fromUtf8("user_history_button"));
-        user_history_button->setGeometry(QRect(10, 110, 141, 23));
+        user_history_button->setGeometry(QRect(10, 110, 161, 23));
         user_data_button = new QPushButton(centralwidget);
         user_data_button->setObjectName(QString::fromUtf8("user_data_button"));
         user_data_button->setGeometry(QRect(10, 140, 141, 23));
@@ -53,14 +53,14 @@ public:
         adduser_button->setGeometry(QRect(10, 20, 141, 23));
         transfer_button = new QPushButton(centralwidget);
         transfer_button->setObjectName(QString::fromUtf8("transfer_button"));
-        transfer_button->setGeometry(QRect(10, 80, 141, 23));
+        transfer_button->setGeometry(QRect(10, 80, 151, 23));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(650, 20, 75, 23));
         admin_window->setCentralWidget(centralwidget);
         menubar = new QMenuBar(admin_window);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 22));
         admin_window->setMenuBar(menubar);
         statusbar = new QStatusBar(admin_window);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -78,7 +78,7 @@ public:
         user_history_button->setText(QApplication::translate("admin_window", "Operacje uzytkownika", nullptr));
         user_data_button->setText(QApplication::translate("admin_window", "Dane u\305\274ytkownika", nullptr));
         adduser_button->setText(QApplication::translate("admin_window", "Dodaj u\305\274ytkownika", nullptr));
-        transfer_button->setText(QApplication::translate("admin_window", "Wykonaj przelew", nullptr));
+        transfer_button->setText(QApplication::translate("admin_window", "Zapytania o wp\305\202ate", nullptr));
         pushButton->setText(QApplication::translate("admin_window", "Wyloguj", nullptr));
     } // retranslateUi
 

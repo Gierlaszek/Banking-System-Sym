@@ -32,6 +32,7 @@ public:
     QTextBrowser *textBrowser_2;
     QTextBrowser *textBrowser;
     QLabel *label;
+    QPushButton *pushButton_payment;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -69,6 +70,9 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(300, 50, 201, 16));
+        pushButton_payment = new QPushButton(centralwidget);
+        pushButton_payment->setObjectName(QString::fromUtf8("pushButton_payment"));
+        pushButton_payment->setGeometry(QRect(90, 160, 113, 32));
         user_window->setCentralWidget(centralwidget);
         menubar = new QMenuBar(user_window);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -90,6 +94,7 @@ public:
         pushButton_back->setText(QApplication::translate("user_window", "Wyloguj", nullptr));
         pushButton_history->setText(QApplication::translate("user_window", "Historia ", nullptr));
         label->setText(QApplication::translate("user_window", "Dost\304\231pne \305\233rodki", nullptr));
+        pushButton_payment->setText(QApplication::translate("user_window", "Wp\305\202ata", nullptr));
     } // retranslateUi
 
 };

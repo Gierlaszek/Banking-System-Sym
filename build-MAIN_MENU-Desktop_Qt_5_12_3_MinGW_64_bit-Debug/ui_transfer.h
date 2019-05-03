@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +40,8 @@ public:
     QLineEdit *lineEdit_konto;
     QLineEdit *lineEdit_kwota;
     QLineEdit *lineEdit_potwierdzenie;
+    QLabel *label_8;
+    QTextBrowser *textBrowser;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -46,7 +49,7 @@ public:
     {
         if (Transfer->objectName().isEmpty())
             Transfer->setObjectName(QString::fromUtf8("Transfer"));
-        Transfer->resize(517, 344);
+        Transfer->resize(407, 344);
         centralwidget = new QWidget(Transfer);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
@@ -69,7 +72,7 @@ public:
         label_6->setGeometry(QRect(20, 160, 60, 16));
         label_7 = new QLabel(centralwidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(20, 190, 91, 16));
+        label_7->setGeometry(QRect(20, 190, 141, 16));
         pushButton_back = new QPushButton(centralwidget);
         pushButton_back->setObjectName(QString::fromUtf8("pushButton_back"));
         pushButton_back->setGeometry(QRect(30, 230, 113, 32));
@@ -78,23 +81,30 @@ public:
         pushButton_Wyslij->setGeometry(QRect(190, 230, 113, 32));
         lineEdit_odiorca = new QLineEdit(centralwidget);
         lineEdit_odiorca->setObjectName(QString::fromUtf8("lineEdit_odiorca"));
-        lineEdit_odiorca->setGeometry(QRect(260, 40, 171, 21));
+        lineEdit_odiorca->setGeometry(QRect(190, 40, 171, 21));
         lineEdit_tytul = new QLineEdit(centralwidget);
         lineEdit_tytul->setObjectName(QString::fromUtf8("lineEdit_tytul"));
-        lineEdit_tytul->setGeometry(QRect(260, 70, 171, 21));
+        lineEdit_tytul->setGeometry(QRect(190, 70, 171, 21));
         lineEdit_konto = new QLineEdit(centralwidget);
         lineEdit_konto->setObjectName(QString::fromUtf8("lineEdit_konto"));
-        lineEdit_konto->setGeometry(QRect(260, 100, 171, 21));
+        lineEdit_konto->setGeometry(QRect(190, 100, 171, 21));
         lineEdit_kwota = new QLineEdit(centralwidget);
         lineEdit_kwota->setObjectName(QString::fromUtf8("lineEdit_kwota"));
-        lineEdit_kwota->setGeometry(QRect(260, 130, 171, 21));
+        lineEdit_kwota->setGeometry(QRect(190, 130, 171, 21));
         lineEdit_potwierdzenie = new QLineEdit(centralwidget);
         lineEdit_potwierdzenie->setObjectName(QString::fromUtf8("lineEdit_potwierdzenie"));
-        lineEdit_potwierdzenie->setGeometry(QRect(260, 180, 171, 21));
+        lineEdit_potwierdzenie->setGeometry(QRect(190, 190, 171, 21));
+        lineEdit_potwierdzenie->setEchoMode(QLineEdit::Password);
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(370, 130, 60, 16));
+        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(190, 160, 171, 21));
         Transfer->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Transfer);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 517, 22));
+        menubar->setGeometry(QRect(0, 0, 407, 22));
         Transfer->setMenuBar(menubar);
         statusbar = new QStatusBar(Transfer);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -114,9 +124,10 @@ public:
         label_5->setText(QApplication::translate("Transfer", "Numer konta", nullptr));
         label_2->setText(QApplication::translate("Transfer", "Kwota", nullptr));
         label_6->setText(QApplication::translate("Transfer", "Data", nullptr));
-        label_7->setText(QApplication::translate("Transfer", "Potwierdzenie", nullptr));
+        label_7->setText(QApplication::translate("Transfer", "Potwierdzenie haslem", nullptr));
         pushButton_back->setText(QApplication::translate("Transfer", "Powr\303\263t", nullptr));
         pushButton_Wyslij->setText(QApplication::translate("Transfer", "Wyslij", nullptr));
+        label_8->setText(QApplication::translate("Transfer", "PLN", nullptr));
     } // retranslateUi
 
 };

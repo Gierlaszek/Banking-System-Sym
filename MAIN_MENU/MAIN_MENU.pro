@@ -14,6 +14,7 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += \
+    admin_user_history.cpp \
         main.cpp \
         mainwindow.cpp \
         register_window.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
     admin_confirm_payment.cpp
 
 HEADERS += \
+    admin_user_history.h \
         mainwindow.h \
         register_window.h \
     login_window.h \
@@ -41,6 +43,7 @@ HEADERS += \
     admin_confirm_payment.h
 
 FORMS += \
+    admin_user_history.ui \
         mainwindow.ui \
         register_window.ui \
     login_window.ui \

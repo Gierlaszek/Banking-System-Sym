@@ -1,3 +1,4 @@
+release/admin_user_history.o
 release/main.o
 release/mainwindow.o
 release/register_window.o
@@ -8,6 +9,9 @@ release/transfer.o
 release/transfer_history.o
 release/admin_acc_delete.o
 release/admin_user_info.o
+release/payment.o
+release/admin_confirm_payment.o
+release/moc_admin_user_history.o
 release/moc_mainwindow.o
 release/moc_register_window.o
 release/moc_login_window.o
@@ -17,3 +21,5 @@ release/moc_transfer.o
 release/moc_transfer_history.o
 release/moc_admin_acc_delete.o
 release/moc_admin_user_info.o
+release/moc_payment.o
+release/moc_admin_confirm_payment.o

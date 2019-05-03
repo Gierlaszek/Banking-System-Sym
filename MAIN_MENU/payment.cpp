@@ -29,7 +29,7 @@ void payment::on_pushButton_clicked()
     QString pass = ui->lineEdit_confirm->text();
 
     //OTWORZENIE PLIKU Z AKTUALNYM UŻTYKOWNIKIEM
-    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
+    QFile Current_User("Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
@@ -39,7 +39,7 @@ void payment::on_pushButton_clicked()
     //OTWORZENIE PLIKU Z POTWIERDZENIEM WPLATY
     if(pass == password)
     {
-    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
+    QFile Confirm_Payment("Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text | QIODevice::Append);
     QTextStream in(&Confirm_Payment);
     in << "\n" << mail;
