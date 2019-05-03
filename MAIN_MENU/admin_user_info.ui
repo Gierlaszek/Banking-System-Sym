@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Powrót</string>
+    <string>Wyloguj</string>
    </property>
   </widget>
   <widget class="QPushButton" name="search_button">

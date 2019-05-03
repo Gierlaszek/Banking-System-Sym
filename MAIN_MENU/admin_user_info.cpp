@@ -28,7 +28,7 @@ void admin_user_info::on_search_button_clicked()
 
     QString email = ui ->lineEdit->text();
            // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-               QFile Database ("Database.txt");
+               QFile Database ("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
                Database.open (QIODevice :: ReadWrite);
                QTextStream data(&Database);
                QString content = data.readAll();
@@ -38,15 +38,15 @@ void admin_user_info::on_search_button_clicked()
 
                if (email=="")
                {
-                   QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
+                   QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
                }
                else if(email.contains("@")==false || email.contains(".")==false)
                {
-                   QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
+                   QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
                }
                else if(content.contains(email)==false)
                {
-                   QMessageBox ::  warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
+                   QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
                }
                else
                {

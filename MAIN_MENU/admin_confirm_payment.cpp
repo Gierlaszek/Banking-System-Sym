@@ -5,6 +5,7 @@
 #include <QString>
 #include <QDebug>
 #include <QVector>
+#include <QMessageBox>
 
 
 admin_confirm_payment::admin_confirm_payment(QWidget *parent) :
@@ -26,7 +27,9 @@ void admin_confirm_payment::on_pushButton_clicked()
 
 void admin_confirm_payment::on_pushButton_2_clicked()
 {
-    QFile Confirm_Payment("Confirm_Payment.txt");
+
+    //Wypisanie danych uzytkownika na ekran
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount, text;
@@ -47,12 +50,17 @@ void admin_confirm_payment::on_pushButton_2_clicked()
 
 void admin_confirm_payment::on_pushButton_3_clicked()
 {
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    //wczytanie danych uzytkownika
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;
     QVector<QString> vec1;
 
+
+    QString text = ui->textBrowser->toPlainText();
+    if(text != "")
+    {
     while(!in.atEnd())
     {
         vec1 += in.readLine();
@@ -66,12 +74,19 @@ void admin_confirm_payment::on_pushButton_3_clicked()
             amount = in.readLine();
             break;
         }
+        else if(mail == "")
+        {
+            QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Brak danych",QMessageBox::Ok);
+            break;
+        }
     }
 
+    //usuniecie danych z pliku confirm_payment
     for(int i =0; i < vec1.size(); i++)
     {
         if(vec1[i] == mail)
         {
+            ui->textBrowser->setText("");
             vec1.erase(vec1.begin() + i, vec1.begin() + i + 3);
             break;
         }
@@ -87,8 +102,8 @@ void admin_confirm_payment::on_pushButton_3_clicked()
     }
     Confirm_Payment.close();
 
-
-    QFile User_Account("User_Account.txt");
+    //dodanie pieniedzy do konta, zapis danych
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&User_Account);
     QString user, money;
@@ -101,7 +116,7 @@ void admin_confirm_payment::on_pushButton_3_clicked()
     while(!out.atEnd())
     {
         user = out.readLine();
-        if (user == mail)
+        if (user.contains(mail) == true)
         {
             money = out.readLine();
             float Money = money.toFloat();
@@ -110,7 +125,7 @@ void admin_confirm_payment::on_pushButton_3_clicked()
             money = QString::number(Money);
             for(int i = 0; i < vec2.size(); i++)
             {
-                if(vec2[i] == mail)
+                if(vec2[i].contains(mail) == true)
                 {
                     vec2[i+1] = money;
                 }
@@ -128,17 +143,27 @@ void admin_confirm_payment::on_pushButton_3_clicked()
     }
 
     User_Account.close();
+    QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Potwierdzono wpłatę!",QMessageBox::Ok);
 
+    }
+    else if(text == "")
+    {
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie wczytano danych!",QMessageBox::Ok);
+    }
 }
 
 void admin_confirm_payment::on_pushButton_4_clicked()
 {
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    //usuniecie danych z pliku
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;
     QVector<QString> vec1;
 
+    QString text = ui->textBrowser->toPlainText();
+    if(text != "")
+    {
     while(!in.atEnd())
     {
         vec1 += in.readLine();
@@ -158,6 +183,7 @@ void admin_confirm_payment::on_pushButton_4_clicked()
     {
         if(vec1[i] == mail)
         {
+            ui->textBrowser->setText("");
             vec1.erase(vec1.begin() + i, vec1.begin() + i + 3);
             break;
         }
@@ -172,4 +198,11 @@ void admin_confirm_payment::on_pushButton_4_clicked()
         clear << "\n" << vec1[n];
     }
     Confirm_Payment.close();
+    QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Anulowano wpłatę!",QMessageBox::Ok);
+    }
+    else if(text == "")
+    {
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie wczytano danych!",QMessageBox::Ok);
+
+    }
 }

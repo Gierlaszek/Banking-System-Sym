@@ -30,7 +30,7 @@ void Transfer::on_pushButton_Wyslij_clicked()
     QString data = QDate::currentDate().toString("dd-MM-yyyy");
 
     //OTWARCIE PLIKU Z AKTUALNYM UŻTYKOWNIKIEM
-    QFile Current_User("Current_User.txt");
+    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
@@ -38,14 +38,14 @@ void Transfer::on_pushButton_Wyslij_clicked()
     Current_User.close();
 
     //OTWORZENIE PLIKU Z DANYMI KONTA UZYTKOWANIKA
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&User_Account);
     QString user, money;
     while(!in.atEnd())
     {
         user = in.readLine();
-        if(user == mail)
+        if(user.contains(mail) == true)
         {
             money = in.readLine();
         }
@@ -65,15 +65,15 @@ void Transfer::on_pushButton_Wyslij_clicked()
     //POTWIERDZENIE DANYCH PRZELEWU
     if(addressee == "" || title == "" || acc_num == "" || amount == "")
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
     }
     else if(pass != password)
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło",QMessageBox::Ok);
     }
     else if(amount.toFloat() > money.toFloat())
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Brak środków na koncie",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Brak środków na koncie",QMessageBox::Ok);
     }
     else
     {
@@ -99,7 +99,7 @@ void Transfer::on_pushButton_Wyslij_clicked()
         }
         for(int i = 0; i<vec1.size(); i++)
         {
-          if(vec1[i] == mail)
+          if(vec1[i].contains(mail) == true)
           {
               vec1[i+1] = money;
               for(int n = 0; n < vec2.size(); n++)
@@ -111,7 +111,7 @@ void Transfer::on_pushButton_Wyslij_clicked()
         }
         User_Account.close();
 
-        //WPISANIE DANYCH PRZELEWU
+        //WPISANIE DANYCH PRZELEWU DO PLIKU
         User_Account.open(QIODevice::WriteOnly | QIODevice::Text);
         QTextStream out(&User_Account);
         for(int i = 0; i < vec1.size(); i++)

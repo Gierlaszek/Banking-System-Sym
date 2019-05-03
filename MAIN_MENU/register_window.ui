@@ -131,6 +131,19 @@
      <string>potwierdz haslo</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="exitButton">
+    <property name="geometry">
+     <rect>
+      <x>234</x>
+      <y>10</y>
+      <width>171</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wyjdź z programu</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
@@ -141,7 +154,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Powrót</string>
+     <string>Powrót do ekranu głównego</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_1">
@@ -227,7 +240,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

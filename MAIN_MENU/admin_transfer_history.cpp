@@ -1,51 +1,43 @@
-#include "transfer_history.h"
-#include "ui_transfer_history.h"
+#include "admin_transfer_history.h"
+#include "ui_admin_transfer_history.h"
 #include <QFile>
-#include <QString>
 #include <QTextStream>
-#include <QTableWidgetItem>
+#include <QString>
+#include <QIODevice>
+#include <QMessageBox>
+#include <QVector>
 #include <QDebug>
 
-transfer_history::transfer_history(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::transfer_history)
+admin_transfer_history::admin_transfer_history(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::admin_transfer_history)
 {
     ui->setupUi(this);
 }
 
-transfer_history::~transfer_history()
+admin_transfer_history::~admin_transfer_history()
 {
     delete ui;
 }
 
-void transfer_history::on_pushButton_clicked()
+void admin_transfer_history::on_pushButton_2_clicked()
 {
-    close();
+    close ();
 }
 
-void transfer_history::on_pushButton_history_clicked()
+void admin_transfer_history::on_pushButton_clicked()
 {
-    //AKTUALNY UŻYTKOWNIK
-    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
-    Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
-    QTextStream out(&Current_User);
-    QString mail = out.readLine();
-    Current_User.close();
-
-
-    //WCZYTYWANIE DANYCH PRZELEWÓW
+    QString mail = ui->lineEdit->text();
     QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&User_Account);
     QString transfer;
     QVector<QString> vec1;
-    in.seek(0);
     while(!in.atEnd())
     {
         transfer = in.readLine();
         if(transfer.contains(mail) == true)
         {
-            qDebug() << transfer;
             in.readLine();
             while(1)
             {

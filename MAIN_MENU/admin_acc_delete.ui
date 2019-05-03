@@ -82,7 +82,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Powrót</string>
+    <string>Powrót do poprzedniego ekranu</string>
    </property>
   </widget>
  </widget>

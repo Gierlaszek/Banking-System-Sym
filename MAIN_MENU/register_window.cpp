@@ -21,8 +21,13 @@ REGISTER_WINDOW::~REGISTER_WINDOW()
     delete ui;
 }
 
+void REGISTER_WINDOW::on_exitButton_clicked()
+{
+    QMessageBox :: StandardButton question = QMessageBox :: warning(this,"Potwierdź decyzję","Czy na pewno chcesz wyjść?",QMessageBox:: Yes | QMessageBox::No);
+    if (question==QMessageBox::Yes)
 
-
+        QApplication::quit();
+}
 
 void REGISTER_WINDOW::on_backButton_clicked()
 {
@@ -50,33 +55,33 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
 
     if (name == "" || surname == "" || adress == "" || mail == "" ||phone == "" ||password == "" ||confirm == "")
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę wypełnić wszystkie pola!",QMessageBox::Ok);
     }
     else if (password!=confirm)
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Podane hasła różnią się!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning2 = QMessageBox :: warning(this,"UWAGA","Podane hasła różnią się!",QMessageBox::Ok);
     }
     else if (ui->checkBox->checkState()==false)
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę zaakceptować politykę prywatności!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning3 = QMessageBox :: warning(this,"UWAGA","Proszę zaakceptować politykę prywatności!",QMessageBox::Ok);
     }
     else if (mail.contains("@")==false || mail.contains( ".")==false )
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy adres E-mail!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning4 = QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy adres E-mail!",QMessageBox::Ok);
     }
     else {
         check1=true;
     }
 
     //SZUKANIE IDENTYCZNEGO KONTA
-    QFile Database("Database.txt");
+    QFile Database("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
     Database.open(QIODevice::ReadWrite);
     QTextStream data(&Database);
     qDebug();
     const QString content1 = data.readAll();
     if(content1.contains(mail) && mail!="")
     {
-        QMessageBox ::QMessageBox :: warning(this,"UWAGA","Podany adres E-mail jest już używany!",QMessageBox::Ok);
+        QMessageBox :: StandardButton warning5 = QMessageBox :: warning(this,"UWAGA","Podany adres E-mail jest już używany!",QMessageBox::Ok);
     }
     else
     {
@@ -108,16 +113,17 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     data << password << "\n";
     data << acc_number << "\n";
     data << money << "\n";
+    data << "@";
     Database.close();
     }
 
     //UTWORZENIE DANYCH PRZELEWOW UZYTKOWNIKA
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text |QIODevice::Append);
     QTextStream out(&User_Account);
     if (check1 == true && check2 == true)
     {
-        out <<"Mail:"+mail << "\n";
+        out <<"Mail:" + mail << "\n";
         out << "0"<<"\n";
     }
 

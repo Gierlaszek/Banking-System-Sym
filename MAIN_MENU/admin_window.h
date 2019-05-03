@@ -6,7 +6,7 @@
 #include <admin_acc_delete.h>
 #include<admin_user_info.h>
 #include <admin_confirm_payment.h>
-#include <admin_history.h>
+#include <admin_transfer_history.h>
 
 namespace Ui {
 class admin_window;
@@ -39,7 +39,7 @@ private:
     admin_acc_delete *ADMIN_ACC_DELETE;
     admin_user_info *ADMIN_USER_INFO;
     admin_confirm_payment *ADMIN_CONFIRM_PAYMENT;
-    admin_history *ADMIN_HISTORY;
+    admin_transfer_history *ADMIN_TRANSFER_HISTORY;
 };
 
 #endif // ADMIN_WINDOW_H
