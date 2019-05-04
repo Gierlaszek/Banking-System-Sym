@@ -45,6 +45,7 @@ public:
         pass_confirm = new QLineEdit(admin_acc_delete);
         pass_confirm->setObjectName(QString::fromUtf8("pass_confirm"));
         pass_confirm->setGeometry(QRect(200, 90, 161, 20));
+        pass_confirm->setEchoMode(QLineEdit::Password);
         del_button = new QPushButton(admin_acc_delete);
         del_button->setObjectName(QString::fromUtf8("del_button"));
         del_button->setGeometry(QRect(120, 140, 131, 61));

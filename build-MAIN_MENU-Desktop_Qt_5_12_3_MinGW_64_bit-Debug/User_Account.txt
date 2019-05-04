@@ -1,7 +1,3 @@
-Mail:1@.
-0
-ppppadsda
-dasas
 Mail:2@.
 900
 Szymon
@@ -9,6 +5,4 @@ Mazurek
 10000022323
 100
 04-05-2019
-dadadasda
-dasdcc
-aaaa
+@
