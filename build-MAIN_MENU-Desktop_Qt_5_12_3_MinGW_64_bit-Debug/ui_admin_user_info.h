@@ -89,7 +89,7 @@ public:
     void retranslateUi(QDialog *admin_user_info)
     {
         admin_user_info->setWindowTitle(QApplication::translate("admin_user_info", "Dialog", nullptr));
-        close_button->setText(QApplication::translate("admin_user_info", "Powr\303\263t", nullptr));
+        close_button->setText(QApplication::translate("admin_user_info", "Wyloguj", nullptr));
         search_button->setText(QApplication::translate("admin_user_info", "Szukaj", nullptr));
         label->setText(QApplication::translate("admin_user_info", "Podaj email", nullptr));
         label_2->setText(QApplication::translate("admin_user_info", "Adres email", nullptr));

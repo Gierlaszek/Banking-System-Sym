@@ -1,4 +1,4 @@
-debug/admin_history.o
+debug/admin_transfer_history.o
 debug/main.o
 debug/mainwindow.o
 debug/register_window.o
@@ -11,7 +11,7 @@ debug/admin_acc_delete.o
 debug/admin_user_info.o
 debug/payment.o
 debug/admin_confirm_payment.o
-debug/moc_admin_history.o
+debug/moc_admin_transfer_history.o
 debug/moc_mainwindow.o
 debug/moc_register_window.o
 debug/moc_login_window.o

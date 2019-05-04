@@ -29,35 +29,36 @@ void admin_acc_delete::on_del_button_clicked()
 
 
 // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-    QFile Database ("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
+    QFile Database ("Database.txt");
     Database.open (QIODevice :: ReadWrite);
     QTextStream data(&Database);
     QString content = data.readAll();
 
-    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
-    User_Account.open(QIODevice :: ReadWrite);
-    QTextStream in(&User_Account);
-    QString user_acc = data.readAll();
+    QFile User_Account("User_Account.txt");
+    User_Account.open(QIODevice::ReadWrite);
+    QTextStream user_acc(&User_Account);
+    QString content_2 = user_acc.readAll();
+    int money_position = content_2.indexOf("Mail:"+user_mail)+user_mail.size()+7;
 
-    int money_position=user_acc.indexOf(QRegExp("\\d{16}"),user_acc.indexOf(user_mail))+19;
-    qDebug() << money_position << user_acc[19] << user_acc.indexOf(user_mail)+19 << user_acc.indexOf(QRegExp("\\d{16}"));
+
+
     if (user_mail=="")
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
+        QMessageBox ::  warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);
     }
     else if(user_mail.contains("@")==false || user_mail.contains(".")==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
+        QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy E-mail!",QMessageBox::Ok);
     }
     else if(content.contains(user_mail)==false)
     {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
+        QMessageBox ::  warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
     }
-    else if (user_acc[money_position]!='0') {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Saldo nie wynosi 0!",QMessageBox::Ok);
+    else if (content_2[money_position]!="0") {
+        QMessageBox ::  warning(this,"UWAGA","Saldo nie wynosi 0!",QMessageBox::Ok);
     }
     else if (pass_confirm!="Admin1") {
-        QMessageBox :: StandardButton warning1 = QMessageBox :: warning(this,"UWAGA","Nieprawidłowe hasło!",QMessageBox::Ok);
+        QMessageBox ::  warning(this,"UWAGA","Nieprawidłowe hasło!",QMessageBox::Ok);
 
     }
     else {
@@ -75,22 +76,23 @@ void admin_acc_delete::on_del_button_clicked()
 
 
         //kasowanie uzytkownika z historii przelewów
-        QFile user_acc("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
-        user_acc.open(QIODevice::ReadWrite);
-        QTextStream user_data(&user_acc);
+        QFile User_Account("User_Account.txt");
+        User_Account.open(QIODevice::ReadWrite);
+        QTextStream user_acc(&User_Account);
         content.clear();
-        content = user_data.readAll();
+        content = user_acc.readAll();
         start = content.indexOf("Mail:"+user_mail);
         marker = content.indexOf("Mail:",start+1);
         end = marker-start;
         if (marker!=-1) {content.remove(start,end);}
         else if (marker==-1) {content.remove(start,content.length()-start);}
-        user_acc.remove();
-        user_acc.close();
-        user_acc.open(QIODevice::WriteOnly);
-        user_data << content;
+        User_Account.remove();
+        User_Account.close();
+        User_Account.open(QIODevice::WriteOnly);
+        user_acc << content;
+        User_Account.close();
 
-        QMessageBox :: StandardButton warning1 = QMessageBox :: information(this,"SUKCES","Pomyślnie usunięto uzytkownika",QMessageBox::Ok);
+        QMessageBox ::  information(this,"SUKCES","Pomyślnie usunięto uzytkownika",QMessageBox::Ok);
 
     }
 

@@ -63,7 +63,7 @@ public:
         label->setText(QApplication::translate("admin_acc_delete", "Podaj maila u\305\274ytkownika", nullptr));
         label_2->setText(QApplication::translate("admin_acc_delete", "Podaj has\305\202o administratora", nullptr));
         del_button->setText(QApplication::translate("admin_acc_delete", "Usu\305\204 konto", nullptr));
-        close_button->setText(QApplication::translate("admin_acc_delete", "Powr\303\263t", nullptr));
+        close_button->setText(QApplication::translate("admin_acc_delete", "Powr\303\263t do poprzedniego ekranu", nullptr));
     } // retranslateUi
 
 };

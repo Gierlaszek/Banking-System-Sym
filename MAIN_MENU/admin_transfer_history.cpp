@@ -28,11 +28,14 @@ void admin_transfer_history::on_pushButton_2_clicked()
 void admin_transfer_history::on_pushButton_clicked()
 {
     QString mail = ui->lineEdit->text();
-    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
+    QFile User_Account("User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&User_Account);
     QString transfer;
     QVector<QString> vec1;
+    if (mail=="")    {ui->tableWidget->clear(); QMessageBox ::  warning(this,"UWAGA","Proszę podać nazwę uzytkownika!",QMessageBox::Ok);}
+
+    else {
     while(!in.atEnd())
     {
         transfer = in.readLine();
@@ -76,5 +79,6 @@ void admin_transfer_history::on_pushButton_clicked()
         if(n == vec1.size())
             break;
     }
+        }
 
 }
