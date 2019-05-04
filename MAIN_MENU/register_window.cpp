@@ -73,7 +73,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     }
 
     //SZUKANIE IDENTYCZNEGO KONTA
-    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
+    QFile User_Account("User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text |QIODevice::Append);
     QTextStream out(&User_Account);
     QString content_user_acc = out.readAll();
