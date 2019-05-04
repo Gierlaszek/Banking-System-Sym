@@ -29,7 +29,7 @@ void admin_confirm_payment::on_pushButton_2_clicked()
 {
 
     //Wypisanie danych uzytkownika na ekran
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount, text;
@@ -51,7 +51,7 @@ void admin_confirm_payment::on_pushButton_2_clicked()
 void admin_confirm_payment::on_pushButton_3_clicked()
 {
     //wczytanie danych uzytkownika
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;
@@ -74,20 +74,15 @@ void admin_confirm_payment::on_pushButton_3_clicked()
             amount = in.readLine();
             break;
         }
-        else if(mail == "")
-        {
-            QMessageBox ::  warning(this,"UWAGA","Brak danych",QMessageBox::Ok);
-            break;
-        }
     }
 
     //usuniecie danych z pliku confirm_payment
-    for(int i =0; i < vec1.size(); i++)
+    for(int i = 0; i < vec1.size(); i++)
     {
         if(vec1[i] == mail)
         {
             ui->textBrowser->setText("");
-            vec1.erase(vec1.begin() + i, vec1.begin() + i + 3);
+            vec1.erase(vec1.begin() + i, vec1.begin() + i + 2);
             break;
         }
     }
@@ -98,12 +93,12 @@ void admin_confirm_payment::on_pushButton_3_clicked()
     QTextStream clear(&Confirm_Payment);
     for (int n = 0; n < vec1.size(); n++)
     {
-        clear << "\n" << vec1[n];
+        clear << vec1[n] << "\n";
     }
     Confirm_Payment.close();
 
     //dodanie pieniedzy do konta, zapis danych
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&User_Account);
     QString user, money;
@@ -155,7 +150,7 @@ void admin_confirm_payment::on_pushButton_3_clicked()
 void admin_confirm_payment::on_pushButton_4_clicked()
 {
     //usuniecie danych z pliku
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;
@@ -184,7 +179,7 @@ void admin_confirm_payment::on_pushButton_4_clicked()
         if(vec1[i] == mail)
         {
             ui->textBrowser->setText("");
-            vec1.erase(vec1.begin() + i, vec1.begin() + i + 3);
+            vec1.erase(vec1.begin() + i, vec1.begin() + i + 2);
             break;
         }
     }
@@ -195,7 +190,7 @@ void admin_confirm_payment::on_pushButton_4_clicked()
     QTextStream clear(&Confirm_Payment);
     for (int n = 0; n < vec1.size(); n++)
     {
-        clear << "\n" << vec1[n];
+        clear << vec1[n] << "\n";
     }
     Confirm_Payment.close();
     QMessageBox ::  warning(this,"UWAGA","Anulowano wpłatę!",QMessageBox::Ok);

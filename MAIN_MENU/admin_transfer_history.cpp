@@ -28,7 +28,7 @@ void admin_transfer_history::on_pushButton_2_clicked()
 void admin_transfer_history::on_pushButton_clicked()
 {
     QString mail = ui->lineEdit->text();
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&User_Account);
     QString transfer;
@@ -57,28 +57,32 @@ void admin_transfer_history::on_pushButton_clicked()
         }
     }
 
-
+    ui->tableWidget->setRowCount(vec1.size() / 5);
     int n = 0;
-    for(int i = 0; i < ui->tableWidget->rowCount(); i++)
+    if(vec1.size() != 0)
     {
-        for(int j = 0; j < ui->tableWidget->columnCount(); j++)
+        for(int i = 0; i < ui->tableWidget->rowCount(); i++)
         {
-            QTableWidgetItem *cell = ui->tableWidget->item(i,j);
-            if(!cell)
+            for(int j = 0; j < ui->tableWidget->columnCount(); j++)
             {
-                cell = new QTableWidgetItem;
-                ui->tableWidget->setItem(i, j, cell);
+                QTableWidgetItem *cell = ui->tableWidget->item(i,j);
+                if(!cell)
+                {
+                    cell = new QTableWidgetItem;
+                    ui->tableWidget->setItem(i, j, cell);
+                }
+                cell->setText(vec1[n]);
+                n++;
+                if(n == vec1.size())
+                    break;
             }
-            cell->setText(vec1[n]);
-            n++;
             if(n == vec1.size())
                 break;
-
-
         }
-        if(n == vec1.size())
-            break;
     }
-        }
+    else if(vec1.size() == 0)
+    {
+        QMessageBox :: warning(this,"Uwaga","Brak danych do wyświetlenia!",QMessageBox::Ok);
+    }
 
 }

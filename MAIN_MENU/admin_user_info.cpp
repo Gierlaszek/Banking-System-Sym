@@ -28,14 +28,14 @@ void admin_user_info::on_search_button_clicked()
 
     QString email = ui ->lineEdit->text();
            // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-               QFile User_Account("User_Account.txt");
+               QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
                User_Account.open(QIODevice :: ReadWrite);
                QTextStream user_acc(&User_Account);
                QString content_2 = user_acc.readAll();
                int money_position = content_2.indexOf("Mail:"+email)+email.size()+7;
 
 
-               QFile Database ("Database.txt");
+               QFile Database ("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
                Database.open (QIODevice :: ReadWrite);
                QTextStream data(&Database);
                QString content = data.readAll();

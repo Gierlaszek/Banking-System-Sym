@@ -5,6 +5,7 @@
 #include <QTextStream>
 #include <QTableWidgetItem>
 #include <QDebug>
+#include <QMessageBox>
 
 transfer_history::transfer_history(QWidget *parent) :
     QMainWindow(parent),
@@ -26,7 +27,7 @@ void transfer_history::on_pushButton_clicked()
 void transfer_history::on_pushButton_history_clicked()
 {
     //AKTUALNY UŻYTKOWNIK
-    QFile Current_User("Current_User.txt");
+    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
@@ -34,7 +35,7 @@ void transfer_history::on_pushButton_history_clicked()
 
 
     //WCZYTYWANIE DANYCH PRZELEWÓW
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&User_Account);
     QString transfer;
@@ -63,26 +64,34 @@ void transfer_history::on_pushButton_history_clicked()
     }
 
 
-    int n = 0;
-    for(int i = 0; i < ui->tableWidget->rowCount(); i++)
+    ui->tableWidget->setRowCount(vec1.size() / 5);
+    if(vec1.size() != 0)
     {
-        for(int j = 0; j < ui->tableWidget->columnCount(); j++)
+        int n = 0;
+        for(int i = 0; i < ui->tableWidget->rowCount(); i++)
         {
-            QTableWidgetItem *cell = ui->tableWidget->item(i,j);
-            if(!cell)
+            for(int j = 0; j < ui->tableWidget->columnCount(); j++)
             {
-                cell = new QTableWidgetItem;
-                ui->tableWidget->setItem(i, j, cell);
+                QTableWidgetItem *cell = ui->tableWidget->item(i,j);
+                if(!cell)
+                {
+                    cell = new QTableWidgetItem;
+                    ui->tableWidget->setItem(i, j, cell);
+                }
+                cell->setText(vec1[n]);
+                n++;
+                if(n == vec1.size())
+                    break;
+
+
             }
-            cell->setText(vec1[n]);
-            n++;
             if(n == vec1.size())
                 break;
-
-
         }
-        if(n == vec1.size())
-            break;
+    }
+    else if(vec1.size() == 0)
+    {
+        QMessageBox :: warning(this,"Uwaga!","Brak danych do wczytania!", QMessageBox::Ok);
     }
 
 }
