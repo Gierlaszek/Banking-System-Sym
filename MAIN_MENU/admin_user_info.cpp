@@ -28,7 +28,7 @@ void admin_user_info::on_search_button_clicked()
 
     QString email = ui ->lineEdit->text();
            // Otwieranie Database'a i user account, szukanie maila i sprawdzanie, czy saldo wynosi 0
-               QFile User_Account("User_Account.txt");
+               QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
                User_Account.open(QIODevice :: ReadWrite);
                QTextStream user_acc(&User_Account);
                QString content_2 = user_acc.readAll();
@@ -36,7 +36,7 @@ void admin_user_info::on_search_button_clicked()
                int money_end_position = content_2.indexOf(QRegExp("\\D"),money_position);
 
 
-               QFile Database ("Database.txt");
+               QFile Database ("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
                Database.open (QIODevice :: ReadWrite);
                QTextStream data(&Database);
                QString content = data.readAll();
@@ -67,7 +67,7 @@ void admin_user_info::on_search_button_clicked()
                    for (int i = start; i <=accnumber_position; ++i) {content_1.append(content[i]);}
                    content_1.replace(0,1,"");
                    content_1.append("\n");
-                   for (int i=money_position;i<=money_end_position;i++) {content_1.append(content_2[i]);}
+                   for (int i=money_position;i<=money_end_position;i++) {content_1.append(content_2[i]); }
                    QTextStream (stdout) << money_position<< money_end_position;
                    ui->textBrowser->setText(content_1);
                    }

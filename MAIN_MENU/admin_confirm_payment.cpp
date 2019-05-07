@@ -29,7 +29,7 @@ void admin_confirm_payment::on_pushButton_2_clicked()
 {
 
     //Wypisanie danych uzytkownika na ekran
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount, text;
@@ -39,7 +39,7 @@ void admin_confirm_payment::on_pushButton_2_clicked()
         if(mail != "")
         {
             amount = in.readLine();
-            text = mail + "\n" + amount;
+            text = mail + "\n\n" + amount;
             break;
         }
     }
@@ -51,7 +51,7 @@ void admin_confirm_payment::on_pushButton_2_clicked()
 void admin_confirm_payment::on_pushButton_3_clicked()
 {
     //wczytanie danych uzytkownika
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;
@@ -98,7 +98,7 @@ void admin_confirm_payment::on_pushButton_3_clicked()
     Confirm_Payment.close();
 
     //dodanie pieniedzy do konta, zapis danych
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&User_Account);
     QString user, money;
@@ -150,7 +150,7 @@ void admin_confirm_payment::on_pushButton_3_clicked()
 void admin_confirm_payment::on_pushButton_4_clicked()
 {
     //usuniecie danych z pliku
-    QFile Confirm_Payment("Confirm_Payment.txt");
+    QFile Confirm_Payment("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Confirm_Payment.txt");
     Confirm_Payment.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream in(&Confirm_Payment);
     QString mail, amount;

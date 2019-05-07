@@ -68,16 +68,20 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     {
         QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy adres E-mail!",QMessageBox::Ok);
     }
+    else if(phone.length() != 9)
+    {
+        QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy numer telefonu!",QMessageBox::Ok);
+    }
     else {
         check1=true;
     }
 
     //SZUKANIE IDENTYCZNEGO KONTA
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text |QIODevice::Append);
     QTextStream out(&User_Account);
     QString content_user_acc = out.readAll();
-    QFile Database("Database.txt");
+    QFile Database("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
     Database.open(QIODevice::ReadWrite);
     QTextStream data(&Database);
     qDebug();
@@ -110,9 +114,9 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     qDebug();
     data << "\n" << mail << "\n";
     data << name << "\n";
-    data <<surname<< "\n";
+    data << surname<< "\n";
     data << adress << "\n";
-    data <<phone<< "\n";
+    data << phone<< "\n";
     data << password << "\n";
     data << acc_number << "\n";
     Database.close();

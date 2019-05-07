@@ -27,7 +27,7 @@ void transfer_history::on_pushButton_clicked()
 void transfer_history::on_pushButton_history_clicked()
 {
     //AKTUALNY UŻYTKOWNIK
-    QFile Current_User("Current_User.txt");
+    QFile Current_User("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Current_User.txt");
     Current_User.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream out(&Current_User);
     QString mail = out.readLine();
@@ -35,7 +35,7 @@ void transfer_history::on_pushButton_history_clicked()
 
 
     //WCZYTYWANIE DANYCH PRZELEWÓW
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&User_Account);
     QString transfer;

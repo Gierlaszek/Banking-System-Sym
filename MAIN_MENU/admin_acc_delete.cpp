@@ -29,12 +29,12 @@ void admin_acc_delete::on_del_button_clicked()
 
 
 // Otwieranie Database'a, szukanie maila i sprawdzanie, czy saldo wynosi 0
-    QFile Database ("Database.txt");
+    QFile Database ("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/Database.txt");
     Database.open (QIODevice :: ReadWrite);
     QTextStream data(&Database);
     QString content = data.readAll();
 
-    QFile User_Account("User_Account.txt");
+    QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
     User_Account.open(QIODevice::ReadWrite);
     QTextStream user_acc(&User_Account);
     QString content_2 = user_acc.readAll();
@@ -54,7 +54,7 @@ void admin_acc_delete::on_del_button_clicked()
     {
         QMessageBox ::  warning(this,"UWAGA","Nie znaleziono użytkownika!",QMessageBox::Ok);
     }
-    else if (content_2[money_position]!="0") {
+    else if (content_2[money_position]!='0') {
         QMessageBox ::  warning(this,"UWAGA","Saldo nie wynosi 0!",QMessageBox::Ok);
     }
     else if (pass_confirm!="Admin1") {
@@ -76,7 +76,7 @@ void admin_acc_delete::on_del_button_clicked()
 
 
         //kasowanie uzytkownika z historii przelewów
-        QFile User_Account("User_Account.txt");
+        QFile User_Account("/Users/kamil/Desktop/bank_nowy/Debug-Kamil/User_Account.txt");
         User_Account.open(QIODevice::ReadWrite);
         QTextStream user_acc(&User_Account);
         content.clear();

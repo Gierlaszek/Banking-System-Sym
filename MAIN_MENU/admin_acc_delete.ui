@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>220</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>50</y>
-     <width>121</width>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>
@@ -29,9 +29,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>90</y>
-     <width>131</width>
+     <width>171</width>
      <height>20</height>
     </rect>
    </property>
@@ -42,9 +42,9 @@
   <widget class="QLineEdit" name="user_mail">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>180</x>
      <y>50</y>
-     <width>161</width>
+     <width>181</width>
      <height>20</height>
     </rect>
    </property>
@@ -52,9 +52,9 @@
   <widget class="QLineEdit" name="pass_confirm">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>180</x>
      <y>90</y>
-     <width>161</width>
+     <width>181</width>
      <height>20</height>
     </rect>
    </property>
@@ -65,9 +65,9 @@
   <widget class="QPushButton" name="del_button">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>60</x>
      <y>140</y>
-     <width>131</width>
+     <width>241</width>
      <height>61</height>
     </rect>
    </property>
@@ -80,12 +80,12 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>171</width>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Powrót do poprzedniego ekranu</string>
+    <string>Powrót</string>
    </property>
   </widget>
  </widget>
