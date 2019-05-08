@@ -32,7 +32,7 @@ void admin_user_info::on_search_button_clicked()
                User_Account.open(QIODevice :: ReadWrite);
                QTextStream user_acc(&User_Account);
                QString content_2 = user_acc.readAll();
-               int money_position = content_2.indexOf("Mail:"+email)+email.size()+7;
+               int money_position = content_2.indexOf("Mail:"+email)+email.size()+6;
                int money_end_position = content_2.indexOf(QRegExp("\\D"),money_position);
 
 

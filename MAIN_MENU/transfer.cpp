@@ -10,6 +10,7 @@
 #include <QLocale>
 #include <QDate>
 #include <QChar>
+#include <QRegExp>
 
 
 Transfer::Transfer(QWidget *parent) :
@@ -62,19 +63,19 @@ void Transfer::on_pushButton_Wyslij_clicked()
     pass = ui->lineEdit_potwierdzenie->text();
 
     bool check1 = false;
-    bool check2 = true;
+//    bool check2 = true;
 
-    QString alfabet = "abcdefghijklmnoprstuwxyzABCDEFGHIJKLMNOPRSTUWXYZ";
-    for(int i = 0; i < acc_num.length(); i++)
-    {
-        if(alfabet.contains(acc_num[i]))
-        {
-            check2 = false;
-        }
-        else{
-            check2 = true;
-        }
-    }
+//    QString alfabet = "abcdefghijklmnoprstuwxyzABCDEFGHIJKLMNOPRSTUWXYZ";
+//    for(int i = 0; i < acc_num.length(); i++)
+//    {
+//        if(!acc_num.contains(QRegExp("\\D")))
+//        {
+//            check2 = false;
+//        }
+//        else{
+//            check2 = true;
+//        }
+  //  }
 
     //POTWIERDZENIE DANYCH PRZELEWU
     if(addressee == "" || title == "" || acc_num == "" || amount == "")
@@ -89,11 +90,11 @@ void Transfer::on_pushButton_Wyslij_clicked()
     {
         QMessageBox ::  warning(this,"UWAGA","Brak środków na koncie",QMessageBox::Ok);
     }
-    else if(check2 == false || acc_num.length() != 16)
+    else if(acc_num.contains(QRegExp("\\D")) || acc_num.length() != 16)
     {
         QMessageBox ::  warning(this,"UWAGA","Zły numer konta",QMessageBox::Ok);
     }
-    else if(check2 == true)
+    else
     {
         check1 = true;
         float Money = money.toFloat();

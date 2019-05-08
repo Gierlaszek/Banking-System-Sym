@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+#include <QRegExp>
 REGISTER_WINDOW::REGISTER_WINDOW(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::REGISTER_WINDOW)
@@ -58,7 +58,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     }
     else if (password!=confirm)
     {
-        QMessageBox ::  warning(this,"UWAGA","Podane hasła różnią się!",QMessageBox::Ok);
+        QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy adres E-mail!",QMessageBox::Ok);
     }
     else if (ui->checkBox->checkState()==false)
     {
@@ -68,9 +68,13 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     {
         QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy adres E-mail!",QMessageBox::Ok);
     }
-    else if(phone.length() != 9)
+    else if(phone.length() != 9 || phone.contains(QRegExp("\\D")))
     {
         QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowy numer telefonu!",QMessageBox::Ok);
+    }
+    else if (name.contains(QRegExp ("\\d")) || surname.contains(QRegExp("\\d")))
+    {
+        QMessageBox ::  warning(this,"UWAGA","Proszę podać prawidłowe imię i nazwisko!",QMessageBox::Ok);
     }
     else {
         check1=true;
@@ -86,7 +90,7 @@ void REGISTER_WINDOW::on_createAccButton_clicked()
     QTextStream data(&Database);
     qDebug();
     const QString content1 = data.readAll();
-    if((content1.contains(mail) && mail!="")||(content_user_acc.contains(mail)&&mail!=""))
+    if(((content1.contains(mail) && mail!="")||(content_user_acc.contains(mail)&&mail!=""))&&check1==true)
     {
         QMessageBox ::  warning(this,"UWAGA","Podany adres E-mail jest już używany!",QMessageBox::Ok);
     }

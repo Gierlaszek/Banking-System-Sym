@@ -5,7 +5,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QDebug>
-
+#include <QRegExp>
 
 payment::payment(QWidget *parent) :
     QMainWindow(parent),
@@ -30,23 +30,20 @@ void payment::on_pushButton_clicked()
     QString pass = ui->lineEdit_confirm->text();
     bool check1 = false;
 
-    if(money != "")
-    {
-        QString alfabet = "abcdefghijklmnoprstuwxyzABCDEFGHIJKLMNOPRSTUWXYZ";
-        for(int i = 0; i < money.length(); i++)
+    if(money != ""){
+        if(money.contains(QRegExp("\\D"))){
+            QMessageBox ::  warning(this,"UWAGA","Nieprawdiłowa liczba!",QMessageBox::Ok);
+        }
+        else
         {
-            if(alfabet.contains(money[i]))
-            {
-                QMessageBox ::  warning(this,"UWAGA","Nieprawdiłowa liczba!",QMessageBox::Ok);
-                break;
-            }
             check1 = true;
         }
+
     }
-    else if(money == "")
-    {
+    else if(money == ""){
         QMessageBox ::  warning(this,"UWAGA","Nieprawdiłowa liczba!",QMessageBox::Ok);
     }
+
 
 
     if(check1 == true)

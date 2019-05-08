@@ -25,12 +25,14 @@ user_window::user_window(QWidget *parent) :
     User_Account.open(QIODevice::ReadWrite | QIODevice::Text);
     QTextStream acc_user(&User_Account);
     QString ballance, User;
+    qDebug() << mail;
     while(!acc_user.atEnd())
     {
         User = acc_user.readLine();
-        if(User == "Mail:"+mail)
+        if(User.contains("Mail:"+mail))
         {
             ballance = acc_user.readLine();
+            qDebug() << "Ballance: " << ballance;
             ballance += " PLN";
         }
     }
